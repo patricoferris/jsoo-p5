@@ -152,7 +152,7 @@ module Vertex : sig
   (** [begin_shape] stops recording the vertices for more complex shapes --
       {{:https://p5js.org/reference/#/p5/endShape} Ref} *)
 
-  val vertex : Vector.t -> unit
+  val vertex : float -> float -> z:float -> unit
     [@@js.global "vertex"]
   (** [vertex x y] creates a new vertex at [x] and [y], optionally specify the
       [z] coordinate *)
