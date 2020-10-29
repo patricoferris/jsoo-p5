@@ -2,6 +2,13 @@ module Core = Core
 module Color = Color
 module Shape = Shape
 module Transform = Transform
+module Constant = Constant
+module Vector = Vector
+module Math = Math
+module Camera = Camera
+module Import = Import
+module Mouse = Mouse
+module Typography = Typography
 
 let push () = Utils.func ~f:"pop" ~args:[||]
 
@@ -10,10 +17,6 @@ let pop () = Utils.func ~f:"pop" ~args:[||]
 let no_loop () = Utils.func ~f:"noLoop" ~args:[||]
 
 let is_looping () : bool = Utils.func ~f:"isLooping" ~args:[||]
-
-let background ((r, g, b, _) : Color.t) =
-  let open Js_of_ocaml in
-  Utils.func ~f:"background" ~args:Js.Unsafe.[| inject r; inject g; inject b |]
 
 module type Sketch = sig
   val setup : unit -> unit
