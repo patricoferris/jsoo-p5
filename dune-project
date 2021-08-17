@@ -5,7 +5,7 @@
 (generate_opam_files true)
 
 (source
- (github patricoferris/ocaml-p5))
+ (github patricoferris/jsoo-p5))
 
 (license ISC)
 
@@ -15,10 +15,8 @@
 
 (package
  (name p5)
- (synopsis "OCaml bindings for p5.js")
- (description "Use js_of_ocaml and these bindings to build with p5.js")
+ (synopsis "Js_of_ocaml bindings for p5.js")
+ (description "Js_of_ocaml bindings for p5.js using the library brr")
  (depends
-  (alcotest :with-test)
-  js_of_ocaml-ppx
-  js_of_ocaml-lwt
-  js_of_ocaml-compiler))
+   js_of_ocaml
+   brr))
