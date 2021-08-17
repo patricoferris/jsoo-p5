@@ -17,12 +17,9 @@ let set sketch k v =
   | Some sketch -> Jv.set sketch k v
   | None -> Jv.set (Window.to_jv G.window) k v
 
-let setup ?sketch fn =
-  set sketch "setup" (Jv.repr fn) |> ignore
+let setup ?sketch fn = set sketch "setup" (Jv.repr fn) |> ignore
 
-let draw ?sketch fn =
-  set sketch "draw" (Jv.repr fn) |> ignore
-
+let draw ?sketch fn = set sketch "draw" (Jv.repr fn) |> ignore
 
 let run ?sketch ?setup:s ?draw:d () =
   Option.iter (setup ?sketch) s;

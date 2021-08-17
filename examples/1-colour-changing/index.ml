@@ -6,8 +6,7 @@ let c : Color.t option ref = ref None
 let i = ref 0.
 
 (* ~~~ Wave function ~~~ *)
-let wave x =
-((Math.sin x +. 1.) /. 2.) *. 255.
+let wave x = (Math.sin x +. 1.) /. 2. *. 255.
 
 (* ~~~ Sketch ~~~ *)
 let setup () =
@@ -19,5 +18,4 @@ let draw () =
   Option.iter (fun c -> Color.set_green c (wave !i |> int_of_float)) !c;
   i := !i +. 0.01
 
-let () =
-  Sketch.run ~setup ~draw ()
+let () = Sketch.run ~setup ~draw ()

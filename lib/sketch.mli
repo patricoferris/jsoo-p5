@@ -15,5 +15,6 @@ val call : t option -> string -> Jv.t array -> Jv.t
 
 val get : t option -> string -> Jv.t
 
-val run : ?sketch:t -> ?setup:(unit -> unit) -> ?draw:(unit -> unit) -> unit -> unit
+val run :
+  ?sketch:t -> ?setup:(unit -> unit) -> ?draw:(unit -> unit) -> unit -> unit
 (** Run your sketch *)
