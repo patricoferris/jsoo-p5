@@ -7,7 +7,6 @@
    (copy ../editor/bin/toplevel_p5.js toplevel_p5.js)
    (copy ../editor/bin/index.html index.html))))
 
-
 (subdir
  js/
  (rule

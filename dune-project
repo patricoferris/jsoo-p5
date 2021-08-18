@@ -20,3 +20,4 @@
  (depends
    js_of_ocaml
    brr))
+(using mdx 0.1)

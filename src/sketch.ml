@@ -21,9 +21,12 @@ let setup ?sketch fn = set sketch "setup" (Jv.repr fn) |> ignore
 
 let draw ?sketch fn = set sketch "draw" (Jv.repr fn) |> ignore
 
-let run ?sketch ?setup:s ?draw:d () =
+let key_pressed ?sketch fn = set sketch "keyPressed" (Jv.repr fn) |> ignore
+
+let run ?sketch ?setup:s ?draw:d ?key_pressed:k () =
   Option.iter (setup ?sketch) s;
-  Option.iter (draw ?sketch) d
+  Option.iter (draw ?sketch) d;
+  Option.iter (key_pressed ?sketch) k
 
 let with_sketch ?id (fn : t -> unit) =
   let p5 = Jv.get (Window.to_jv G.window) "p5" in
