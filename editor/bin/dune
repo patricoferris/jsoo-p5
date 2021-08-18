@@ -1,0 +1,28 @@
+(executable
+ (name toplevel_p5)
+ (libraries toplevel p5)
+ (modules toplevel_p5)
+ (flags
+  (:standard -rectypes -linkall))
+ (modes byte))
+
+(rule
+ (targets export_p5.txt)
+ (deps toplevel_p5.bc)
+ (action
+  (run jsoo_listunits -o %{targets} stdlib js_of_ocaml lwt p5)))
+
+(rule
+ (targets toplevel_p5.js)
+ (action
+  (run %{bin:js_of_ocaml} --export %{dep:export_p5.txt} --toplevel --pretty
+    +toplevel.js +dynlink.js +base/runtime.js %{dep:toplevel_p5.bc} -o
+    %{targets})))
+
+(subdir
+ js/
+ (rule
+  (target index.js)
+  (deps ../toplevel_p5.js)
+  (action
+   (copy %{deps} %{target}))))

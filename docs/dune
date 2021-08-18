@@ -1,0 +1,8 @@
+(rule
+ (deps ../editor/bin/toplevel_p5.js ../editor/bin/index.html)
+ (targets toplevel_p5.js index.html)
+ (mode promote-until-clean)
+ (action
+  (progn
+   (copy ../editor/bin/toplevel_p5.js toplevel_p5.js)
+   (copy ../editor/bin/index.html index.html))))
